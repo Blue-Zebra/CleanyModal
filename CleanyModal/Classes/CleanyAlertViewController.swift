@@ -16,10 +16,11 @@ open class CleanyAlertViewController: CleanyModalViewController {
     public enum Style: IntegerLiteralType {
         case actionSheet
         case alert
+        case wideAlert
         
         var widthMultiplier: CGFloat {
             switch self {
-            case .actionSheet:
+            case .actionSheet, .wideAlert:
                 return 0.90
             default:
                 return 0.75
