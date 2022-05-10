@@ -344,7 +344,12 @@ extension CleanyAlertViewController: UITableViewDataSource, UITableViewDelegate 
             cell.textLabel?.font = font
         }
         
-        cell.title = action?.title
+        if case .underlined = action?.style ?? .default {
+            cell.underlinedTitle = action?.title
+        } else {
+            cell.title = action?.title
+        }
+        
         cell.img = action?.image
         cell.backgroundColor = styleSettings[.backgroundColor] ?? .white
         
@@ -352,7 +357,7 @@ extension CleanyAlertViewController: UITableViewDataSource, UITableViewDelegate 
         switch action?.style ?? .default {
         case .destructive:
             actionColor = styleSettings[.destructiveColor] ?? UIColor.red
-        case .default:
+        case .default, .underlined:
             actionColor = styleSettings[.tintColor] ??
                 styleSettings[.defaultActionColor] ??
                 styleSettings[.textColor] ??
@@ -415,6 +420,8 @@ open class CleanyAlertAction {
         case destructive
         
         case disabled
+        
+        case underlined
     }
     
     open var title: String?

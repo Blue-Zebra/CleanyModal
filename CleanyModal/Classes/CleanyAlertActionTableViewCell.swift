@@ -17,6 +17,18 @@ class CleanyAlertActionTableViewCell: UITableViewCell {
             textLB.text = title
         }
     }
+    
+    var underlinedTitle: String? {
+        didSet {
+            let attributedText = NSAttributedString(
+                string: underlinedTitle ?? "",
+                attributes: [
+                    .underlineStyle: NSUnderlineStyle.single.rawValue
+                ]
+            )
+            textLB.attributedText = attributedText
+        }
+    }
 
     var img: UIImage? {
         didSet {
