@@ -99,7 +99,7 @@ open class CleanyAlertViewController: CleanyModalViewController {
         // ***** ActionSheet vs Alert style
         //
         switch preferredStyle {
-        case .alert:
+        case .alert, .wideAlert:
             alertViewCenterY = alertViewCenterY.setSafelyPriority(UILayoutPriority.required)
             alertViewBottom = alertViewBottom!.setSafelyPriority(UILayoutPriority.defaultLow)
             actionsSheetCancelButton?.removeFromSuperview()
